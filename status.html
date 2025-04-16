@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status do Bot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .status {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      padding: 5px 10px;
+      border-radius: 4px;
+      background-color: #e0e0e0;
+    }
+    .status.online {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .status.offline {
+      background-color: #f44336;
+      color: white;
+    }
+    .status.loading {
+      background-color: #ff9800;
+      color: white;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Status do Bot</h1>
+    <p>Status atual:</p>
+    <div id="bot-status" class="status loading">Carregando...</div>
+    <p id="error-message" class="error-message"></p>
+  </div>
+
+  <script>
+    fetch('http://localhost:3000/status')
+      .then(res => res.json())
+      .then(data => {
+        const statusElement = document.getElementById('bot-status');
+        const errorMessageElement = document.getElementById('error-message');
+
+        if (data.status === 'online') {
+          statusElement.textContent = 'Online';
+          statusElement.classList.remove('loading', 'offline');
+          statusElement.classList.add('online');
+        } else {
+          statusElement.textContent = 'Offline';
+          statusElement.classList.remove('loading', 'online');
+          statusElement.classList.add('offline');
+        }
+      })
+      .catch(() => {
+        document.getElementById('bot-status').textContent = 'Erro ao obter status';
+        document.getElementById('error-message').textContent = 'Não foi possível acessar o status do bot. Tente novamente mais tarde.';
+      });
+  </script>
+</body>
+</html>

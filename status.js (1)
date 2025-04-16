@@ -1,0 +1,56 @@
+const express = require('express');
+const { Client, GatewayIntentBits } = require('discord.js');
+const app = express();
+const PORT = 3000;
+
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMembers
+  ]
+});
+
+const token = import.meta.env.VITE_TOKEN;
+const targetBotId = '1362116237597085846';
+
+let botStatus = 'desconhecido';
+
+client.once('ready', async () => {
+  console.log(`Bot logado como ${client.user.tag}`);
+  
+  // Define o status do bot verificador
+  client.user.setPresence({
+    status: 'online', // Pode ser 'online', 'idle', 'dnd' ou 'invisible'
+    activity: {
+      name: 'Verificando status de outro bot...', // Mensagem de atividade
+      type: 'WATCHING', // Tipo de atividade: 'PLAYING', 'STREAMING', 'LISTENING', 'WATCHING'
+    },
+  });
+  
+  
+  // Função para atualizar o status
+  const updateBotStatus = async () => {
+    const guild = client.guilds.cache.first();
+    const member = await guild.members.fetch(targetBotId).catch(() => null);
+    
+    if (member && member.presence) {
+      botStatus = member.presence.status;
+    } else {
+      botStatus = 'offline';
+    }
+  };
+  
+  // Atualizar o status assim que o bot for logado
+  updateBotStatus();
+  
+  // Atualizar o status a cada 1 hora (3600000 milissegundos)
+  setInterval(updateBotStatus, 3600000); // 1 hora em milissegundos
+});
+
+app.get('/status', (req, res) => {
+  res.json({ status: botStatus });
+});
+
+client.login(token);
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
