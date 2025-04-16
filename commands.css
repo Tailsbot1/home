@@ -1,0 +1,674 @@
+@font-face {
+    font-family: NotoSans;
+    font-weight: 400;
+    src: url("NotoSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: NotoSans;
+    font-weight: 700;
+    src: url("NotoSans-Bold.ttf");
+}
+
+code {
+    background: rgb(60, 60, 60);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.commands-list-container {
+    font-family: 'NotoSans', sans-serif;
+    margin: 0 auto;
+    max-width: 1920px;
+    padding: 60px;
+}
+
+.cmd-option {
+    line-height: 21px;
+}
+
+.version-selection {
+    background: #1a1a1a;
+    font-family: 'NotoSans';
+    color: white;
+    font-size: 15px;
+}
+
+.commands-mainicon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 1rem;
+    background-color: #fff;
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-image: url('/_images/icon-commands.svg');
+}
+
+.cl-header {
+    background: #0d0d0d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+}
+
+.cl-header h2 {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.commands-version {
+    align-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-left: 12px;
+}
+
+.cl-header button {
+    background: #1a1a1a;
+    border: 2px solid #fff4;
+    color: #fffc;
+    font-family: 'NotoSans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 7px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cl-header button img {
+    margin-right: 0;
+}
+
+.cl-header button:hover {
+    background: #2a2a2a;
+    border: 2px solid #fff5;
+}
+
+.cl-sub-header {
+    align-items: center;
+    background: #0d0d0d;
+    display: inline-flex;
+    height: 50px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cl-sub-header * {
+    display: inline-flex;
+}
+
+.modules-header {
+    align-items: center;
+    background: #1a1a1a;
+    color: #fff;
+    display: inline-flex;
+    font-family: 'NotoSans';
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    justify-content: space-between;
+    padding: 0px 20px;
+    height: 50px;
+    width: 150px;
+}
+
+.modules-header img {
+    width: 12px;
+}
+
+
+/*SEARCH*/
+.search-wrap {
+    margin-left: 20px;
+    padding-right: 10px;
+}
+
+.search-wrap input {
+    background: #1a1a1a;
+    border: 0;
+    color: #fff;
+    font-family: 'NotoSans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    outline-color: #111111;
+    padding: 6px 10px;
+    border-radius: 4px;
+    width: 250px;
+}
+
+.search-wrap input::placeholder {
+    color: #b3b3b3;
+}
+
+/*MODULES*/
+.modules-wrap {
+    align-items: center;
+    display: flex;
+    width: 48%;
+}
+
+.modules-wrap h2 {
+    align-self: center;
+    color: #484848;
+    font-weight: 700;
+    margin: -10px 40px 0 0;
+    width: 25%;
+}
+
+.modules {
+    background: #1a1a1a;
+    display: inline-block;
+    padding: 15px;
+    padding-bottom: 5px;
+    width: calc(100% - 30px);
+    user-select: none;
+}
+
+
+
+.module {
+    display: inline-block;
+    font-family: "NotoSans", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px #0008;
+    padding: 5px 7px;
+}
+
+.modules-all {
+    background: #fff3;
+    border: 2px solid #fff8;
+    color: #fff;
+}
+
+.modules-all:active,
+.modules-all.selected {
+    outline: none;
+}
+
+.module-name {
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    font-family: "NotoSans", sans-serif;
+    border-radius: 0px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-flex;
+    margin: 0 10px 10px 0;
+    padding: 7.5px;
+    user-select: none;
+}
+
+.module-name input {
+    margin-right: 5px;
+}
+
+.module-name.selected {
+    text-shadow: 2px 2px 2px #0008;
+}
+
+.module-name.all.selected {
+    background: #fffd;
+    color: #1a1a1a;
+    text-shadow: 2px 2px 2px #0004;
+}
+
+.module-name.administration {
+    background: rgba(0, 155, 191, 0.3);
+    border: 2px solid #009bbf;
+}
+
+.administration,
+.administration.selected {
+    background: #009cbfcb;
+}
+
+.module-name.customreactions,
+.module-name.expressions {
+    background: rgba(0, 91, 211, 0.3);
+    border: 2px solid #005bd3;
+}
+
+.customreactions,
+.customreactions.selected,
+.expressions,
+.expressions.selected {
+    background: #005bd3c7;
+}
+
+.module-name.gambling {
+    background: rgba(45, 41, 170, 0.3);
+    border: 2px solid #2d29aa;
+}
+
+.gambling,
+.gambling.selected {
+    background: #2d29aac9;
+}
+
+.module-name.games {
+    background: rgba(108, 33, 174, 0.3);
+    border: 2px solid #6c21ae;
+}
+
+.games,
+.games.selected {
+    background: #6c21aebe;
+}
+
+.module-name.help {
+    background: rgba(151, 45, 182, 0.3);
+    border: 2px solid #972db6;
+}
+
+.help,
+.help.selected {
+    background: #962db6d5;
+}
+
+.module-name.music {
+    background: rgba(197, 37, 136, 0.3);
+    border: 2px solid #c52588;
+}
+
+.music,
+.music.selected {
+    background: #c52588cb;
+}
+
+.module-name.nsfw {
+    background: rgba(209, 40, 52, 0.3);
+    border: 2px solid #d12834;
+}
+
+.nsfw,
+.nsfw.selected {
+    background: #d12833c7;
+}
+
+.module-name.permissions {
+    background: rgba(211, 104, 24, 0.3);
+    border: 2px solid #d36818;
+}
+
+.permissions,
+.permissions.selected {
+    background: #d36918c7;
+}
+
+.module-name.pokemon {
+    background: rgba(211, 168, 14, 0.3);
+    border: 2px solid #d3a80e;
+}
+
+.pokemon,
+.pokemon.selected {
+    background: #d3a80ecb;
+}
+
+.module-name.searches {
+    background: rgba(158, 197, 0, 0.3);
+    border: 2px solid #9ec500;
+}
+
+.searches,
+.searches.selected {
+    background: #9ec500cc;
+}
+
+.module-name.utility {
+    background: rgba(66, 184, 52, 0.3);
+    border: 2px solid #42b834;
+}
+
+.utility,
+.utility.selected {
+    background: #41b834c5;
+}
+
+.module-name.xp {
+    background: rgba(0, 157, 94, 0.3);
+    border: 2px solid #009d5e;
+}
+
+.xp,
+.xp.selected {
+    background: #009d5ed0;
+}
+
+.module-name.medusa {
+    background: rgba(255, 0, 179, 0.3);
+    border: 2px solid #ff00dd;
+}
+
+
+.medusa,
+.medusa.selected {
+    background: rgba(255, 0, 200, 0.7);
+}
+
+/*COMMANDS*/
+.commands {
+    background: #fff;
+}
+
+.commands-header,
+.command {
+    display: grid;
+    font-family: "NotoSans", sans-serif;
+    font-weight: 700;
+    grid-template-columns: 22% 39% 39%;
+}
+
+.commands-header {
+    background: #0d0d0d;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 20px;
+    padding: 1rem 0;
+}
+
+.commands-header p {
+    padding-left: 20px;
+}
+
+.command {
+    font-family: 'NotoSans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 1;
+    transition: opacity 0.2s linear;
+}
+
+.command.enter {
+    opacity: 0;
+}
+
+.command div {
+    color: #fff;
+    padding: 20px;
+}
+
+.command div:first-child,
+.command div:last-child {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.command div:nth-child(2) {
+    background: rgba(0, 0, 0, 0.88);
+}
+
+/* .command strong {
+    display: block;
+} */
+
+.command span:not(.module) {
+    display: block;
+}
+
+.command:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.command-name {
+    color: #fff !important;
+    font-family: "NotoSans", sans-serif;
+    font-weight: 700;
+}
+
+.description,
+.usage {
+    color: #ccc !important;
+}
+
+.description section a {
+    color: #08d;
+    text-decoration: none;
+}
+
+.description section a:hover {
+    color: #0af;
+    text-decoration: none;
+}
+
+.description-warning {
+    align-items: center;
+    color: #fff;
+    display: inline-block;
+    font-family: 'NotoSans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px #0008;
+}
+
+.description-warning span {
+    display: inline-block !important;
+}
+
+.description-warning .permission {
+    background: #7289da;
+    margin: 5px 0px 5px 5px;
+    padding: 5px 7px;
+}
+
+.description-warning .permission.channel-perm {
+    background-color: #40444b;
+}
+
+.description-warning .permission.bot-owner {
+    background-color: #bd543a;
+}
+
+.description-warning .permission.only-public {
+    background-color: #e75480;
+}
+
+.description-warning .permission.no-public {
+    background-color: maroon;
+}
+
+.description-warning .permission {
+    position: relative;
+    display: inline-block;
+}
+
+.description-warning .permission .tooltiptext {
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: visible;
+    display: block;
+    width: 300px;
+    top: 101%;
+    left: 0;
+}
+
+.description-warning .permission:hover .tooltiptext {
+    visibility: visible;
+}
+
+.options > .title {
+    margin-top: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 10px;
+}
+
+.commands-list-notice {
+    background: rgb(250, 121, 0);
+    border: 2px solid rgb(255, 159, 68);
+    color: #fff;
+    padding: 10px 16px;
+    font-family: 'NotoSans', sans-serif;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.commands-list-notice .v3button {
+    background: rgba(255, 255, 255, 0.8);
+    color: rgb(250, 121, 0);
+    border: 0px;
+    margin: auto 12px;
+    padding: 4px 8px;
+    font-family: 'NotoSans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.commands-list-notice .v3button:hover {
+    background: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.commands-list-notice .closebutton {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.8);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    --webkit-mask-image: url('close.svg');
+    mask-image: url('close.svg');
+}
+
+.commands-list-notice .closebutton:hover {
+    background: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.ReactModal__Overlay--after-open {
+    z-index: 1;
+    background: rgba(25, 25, 25, 0.75) !important;
+
+}
+.ReactModal__Content--after-open {
+    border: 0px;
+} 
+
+@media screen and (max-width: 800px) {
+    .cl-headers-wrap {
+        background: #0d0d0d;
+    }
+
+    .cl-header {
+        padding-bottom: 0px;
+        padding-right: 15px;
+        padding-top: 15px;
+    }
+
+    .cl-header h2 {
+        margin-left: 5px;
+        font-size: 16px;
+    }
+
+    .modules-header {
+        display: none;
+    }
+
+    .cl-sub-header {
+        display: inline-flex;
+        height: 60px;
+    }
+
+    .search-wrap {
+        margin: 0px 15px;
+        padding: 0px;
+        width: 100%;
+    }
+
+    .search-wrap input {
+        width: 100%;
+    }
+
+    .commands-list-container {
+        padding: 20px;
+    }
+
+    .commands {
+        margin-top: 20px;
+        background: #1a1a1a;
+        padding: 15px;
+    }
+
+    .commands-header {
+        display: none;
+    }
+
+    .commands-list-notice > div {
+        display: inline-block;
+        width: 90%;
+    }
+
+    .commands-list-notice .v3button {
+        margin-top: 4px;
+    }
+
+    .command {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .command div {
+        padding: 10px;
+    }
+
+    .command div:first-child,
+    .command div:nth-child(2) {
+        background: #333;
+    }
+
+    .command div:last-child {
+        background: #2b2b2b;
+    }
+
+    .command-name {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .module {
+        margin-top: 0;
+    }
+
+    .usage {
+        align-items: baseline;
+        display: flex;
+    }
+
+    .usage:before {
+        content: 'Usage';
+        font-family: 'NotoSans', sans-serif;
+        color: #fff;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        margin-right: 10px;
+        text-transform: uppercase;
+    }
+}
